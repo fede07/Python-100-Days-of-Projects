@@ -12,44 +12,54 @@ from art import logo
 from os import system
 import random
 
-secret_number = random.randint(1, 100)
+SECRET_NUMBER = random.randint(1, 100)
+EASY = 10
+HARD = 5
 
-system('cls')
-print(logo)
-print("Welcome to the Number Guessing Game!")
-print("I'm thinking of a number between 1 and 100.")
-print(f"(The number is {secret_number})")
-difficulty = input("Choose a difficulty. Type 'easy' or 'hard':").lower()
-lives = 0
-
-if difficulty == "easy":
-    lives = 10
-else:
-    lives = 5
-
-isOver = False
-
-while not isOver:
-    print(f"You have {lives} attempts remaining to guess the number.")
-    guess = int(input("Make a guess: "))
-
-    if(guess == secret_number):
-        print(f"You got it! the answer was {secret_number}")
-        isOver = True
-    elif guess > secret_number:
-        print("Too high.")
+def setDifficulty():
+    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
+    if difficulty == "easy":
+        return EASY
     else:
+        return HARD
+    
+def checkAnswer(guess, answer):
+    if guess > answer:
+        print("Too high.")
+        return False
+    elif guess < answer:
         print("Too low.")
+        return False
+    else:
+        print(f"You've got it! The answe was {answer}.")
+        return True
 
-    lives-=1
+def game():
+    system('cls')
+    print(logo)
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100.")
+    print(f"(The number is {SECRET_NUMBER})")
 
-    if(lives == 0):
-        isOver = True 
+    lives = setDifficulty()
+    isOver = False
 
-    if(not isOver and lives > 0):
-        print("Guess again.")
-    elif lives == 0:
-        print("You've run out of guesses, you lose")
+    while not isOver:
+        print(f"You have {lives} attempts remaining to guess the number.")
+        guess = int(input("Make a guess: "))
+
+        isOver = checkAnswer(guess, SECRET_NUMBER)
+        lives-=1
+
+        if(lives == 0):
+            isOver = True 
+
+        if(not isOver and lives > 0):
+            print("Guess again.")
+        elif lives == 0:
+            print("You've run out of guesses, you lose")
+
+game()
 
 
 
