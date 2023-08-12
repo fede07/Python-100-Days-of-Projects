@@ -23,6 +23,12 @@ MENU = {
             "coffee": 24,
         },
         "cost": 3.0,
+    },
+    "chocomilk":{
+        "ingredients": {
+            "milk": 150
+        },
+        "cost": 2.0,
     }
 }
 
@@ -115,10 +121,10 @@ def main():
         selection = input("What would you like? (espresso/latte/cappuccino): ").lower()
         if selection == "report":
             report()
-        elif selection == "espresso" or selection == "latte" or selection == "cappuccino":
+        elif selection in MENU:
             if charge(selection):
                 serve(selection)
-        elif selection == "quit":
+        elif selection == "off":
             turnOn = False
         else:
             print("Sorry, could you repeat that?")
