@@ -1,31 +1,45 @@
-from turtle import Turtle, Screen
+#Run from same folder as this file
+import colorgram
+import turtle as t
 import random
 
-colours = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "wheat", "SlateGray", "SeaGreen"]
+rgb_colors = []
+colors = colorgram.extract(".\\image.jpg", 30) 
 
-def draw_shape(sides):
-    if sides <= 0:
-        return
-    angle_current = (360/sides)
-    for _ in range(0, sides):
-        turtle.forward(100)
-        turtle.right(angle_current)
+t.colormode(255)
 
-turtle = Turtle()
+turtle = t.Turtle()
+turtle.hideturtle()
+turtle.penup()
 turtle.shape("turtle")
-color = 0.0
-# turtle.color(color)
-# for _ in range(0, 4):
-#     for _ in range(0,10):
-#         turtle.forward(10)
-#         turtle.penup()
-#         turtle.forward(10)
-#         turtle.pendown()
-#     turtle.right(90)
+turtle.speed(0)
+turtle.setheading(225)
+turtle.forward(300)
+turtle.setheading(0)
 
-for sides in range(3, 15):
-    turtle.color(random.choice(colours))
-    draw_shape(sides)
-    
-screen = Screen()
+dots = 100
+
+for color in colors:
+    r = color.rgb.r
+    g = color.rgb.g
+    b = color.rgb.b
+    new_color = (r, g, b)
+    rgb_colors.append(new_color)
+
+def paintDots(size):
+    for i in range(1, dots + 1):
+        turtle.dot(20, random.choice(rgb_colors))
+        turtle.forward(50)
+        if i % 10 == 0:
+            turtle.setheading(90)
+            turtle.forward(50)
+            turtle.setheading(180)
+            turtle.forward(500)
+            turtle.setheading(0)
+
+paintDots(10)
+
+screen = t.Screen()
 screen.exitonclick()
+
+
