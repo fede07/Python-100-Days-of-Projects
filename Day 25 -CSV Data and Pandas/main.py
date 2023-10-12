@@ -1,10 +1,10 @@
-# with open(r"Day 26 -CSV Data and Pandas\weather_data.csv", "r") as weather_data:
+# with open(r"Day 25 -CSV Data and Pandas\weather_data.csv", "r") as weather_data:
 #     data = weather_data.readlines()
 #     print(data)
 
 # import csv
 
-# with open(r"Day 26 -CSV Data and Pandas\weather_data.csv") as weather_data:
+# with open(r"Day 25 -CSV Data and Pandas\weather_data.csv") as weather_data:
 #     data = csv.reader(weather_data)
 #     temperatures = []
 #     for row in data:
@@ -15,7 +15,7 @@
 
 import pandas
 
-weather_data = pandas.read_csv("Day 26 -CSV Data and Pandas\weather_data.csv")
+weather_data = pandas.read_csv("Day 25 -CSV Data and Pandas\weather_data.csv")
 # print(weather_data["temp"])
 
 data_dict = weather_data.to_dict()
@@ -52,4 +52,4 @@ data_dict = {
 }
 
 data = pandas.DataFrame(data_dict)
-data.to_csv(r"Day 26 -CSV Data and Pandas\students.csv")
+data.to_csv(r"Day 25 -CSV Data and Pandas\students.csv")
