@@ -33,10 +33,11 @@ while len(guessed_states) < 50:
     if answer_state == "Exit":
         break;
     
-missing_states = []
-for state in  all_states:
-    if state not in guessed_states:
-        missing_states.append(state)
+missing_states = [state for state in all_states if state not in guessed_states]
+# missing_states = []
+# for state in  all_states:
+#     if state not in guessed_states:
+#         missing_states.append(state)
 
 if len(missing_states) > 0:
     print("You missed:\n")
