@@ -30,6 +30,8 @@ import random
 
 choices = [rock, paper, scissors]
 bandera = True
+
+choice = None
  
 while(bandera):
     choice = int(input("Rock, paper, scissors!? "))
@@ -38,7 +40,7 @@ while(bandera):
     
 bot = random.randint(0,2)
 
-print(f"Your choice:\n{choices[choice]} ")
+print(f"Your choice:\n{choices[choice]} ") # type: ignore
 print(f"Computer chose:\n {choices[bot]}")
 
 if(choice == bot):
