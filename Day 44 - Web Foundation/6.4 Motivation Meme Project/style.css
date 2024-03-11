@@ -1,0 +1,31 @@
+body{
+    background-color: black;
+  }
+
+  #imagebox {
+    padding: 50px;
+    padding-bottom: 0px;
+  }
+
+  #image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 10px solid white;
+  }
+
+  #meme-title{
+    color: white;
+    background-color: black;
+    text-align: center;
+    font-family: Libre Baskerville;
+    font-size: 25px;
+  }
+
+  #meme-text {
+    color: white;
+    background-color: black;
+    text-align: center;
+    font-family: Libre Baskerville;
+    font-size: 20px;
+  }
